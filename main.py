@@ -4,6 +4,8 @@ from time import sleep
 
 ### CONSTANTS
 
+NUMTIMES = 2
+
 @dataclass
 class Position:
     x: int
@@ -67,6 +69,17 @@ def startNext():
     pyautogui.moveTo(1464, 802)
     pyautogui.click()
     sleep(5)
+
+def finishOdyssey():
+    pyautogui.moveTo(804, 707)
+    pyautogui.click()
+    sleep(5)
+    pyautogui.moveTo(804, 704)
+    pyautogui.click()
+    sleep(1)
+    pyautogui.moveTo(1464, 802)
+    pyautogui.click()
+    sleep(2)
 
 ### MAP1
 def playMap1():
@@ -202,17 +215,72 @@ def upgradeSniperMap2():
     pyautogui.moveTo(702, 448)
     pyautogui.click()
 
+### MAP3
+
+def playMap3():
+    startLevel()
+    placeSaudaMap3()
+    placeBoomerangMap3()
+    sleep(75)
+    placeSniperMap3()
+    sleep(40)
+    completeLevel()
+
+def placeSaudaMap3():
+    pyautogui.moveTo(SAUDA.x, SAUDA.y)
+    pyautogui.click()
+    pyautogui.moveTo(989, 401)
+    pyautogui.click()
+
+def placeBoomerangMap3():
+    pyautogui.moveTo(BOOMERANG.x, BOOMERANG.y)
+    pyautogui.click()
+    pyautogui.moveTo(985, 492)
+    pyautogui.click()
+    pyautogui.click()
+    buyBotL()
+    sleep(15)
+    buyBotL()
+    sleep(40)
+    buyTopL()
+    buyTopL()
+    buyTopL()
+    sleep(100)
+    buyTopL()
+    pyautogui.moveTo(985, 492)
+    pyautogui.click()
+
+def placeSniperMap3():
+    pyautogui.moveTo(SNIPER.x, SNIPER.y)
+    pyautogui.click()
+    pyautogui.moveTo(605, 402)
+    pyautogui.click()
+    pyautogui.click()
+    buyTopR()
+    buyTopR()
+    buyTopR()
+    buyMidR()
+    buyMidR()
+    sleep(50)
+    buyTopR()
+    pyautogui.moveTo(605, 402)
+    pyautogui.click()
+
 ### MAIN
 
 def main():
-    sleep(3)
+    sleep(5)
 
-    startOdyssey()
-    sleep(5)
-    playMap1()
-    startNext()
-    sleep(5)
-    playMap2()
-    startNext()
-    
+    for i in range(0, NUMTIMES):
+        startOdyssey()
+        sleep(5)
+        playMap1()
+        startNext()
+        sleep(5)
+        playMap2()
+        startNext()
+        sleep(5)
+        playMap3()
+        finishOdyssey()
+
 main()
