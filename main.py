@@ -51,6 +51,23 @@ def startLevel():
     sleep(.1)
     pyautogui.click()
 
+def startOdyssey():
+    pyautogui.moveTo(1464, 802)
+    pyautogui.click()
+    sleep(.5)
+    pyautogui.click()
+    sleep(5)
+
+def completeLevel():
+    pyautogui.moveTo(699, 657)
+    pyautogui.click()
+    sleep(5)
+
+def startNext():
+    pyautogui.moveTo(1464, 802)
+    pyautogui.click()
+    sleep(5)
+
 ### MAP1
 def playMap1():
     startLevel()
@@ -59,6 +76,8 @@ def playMap1():
     placeBoomerangMap1()
     sleep(130)
     placeSniperMap1()
+    sleep(10)
+    completeLevel()
 
 def placeSaudaMap1():
     pyautogui.moveTo(SAUDA.x, SAUDA.y)
@@ -114,6 +133,8 @@ def playMap2():
     upgradeBoomerangMap2()
     sleep(90)
     upgradeSniperMap2()
+    sleep(30)
+    completeLevel()
 
 def placeSaudaMap2():
     pyautogui.moveTo(SAUDA.x, SAUDA.y)
@@ -185,7 +206,13 @@ def upgradeSniperMap2():
 
 def main():
     sleep(3)
-    #playMap1()
-    playMap2()
 
+    startOdyssey()
+    sleep(5)
+    playMap1()
+    startNext()
+    sleep(5)
+    playMap2()
+    startNext()
+    
 main()
